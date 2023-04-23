@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm8a8tnqx7rkb"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eg38h"]
+particle_flag_disable_z = true
+gravity = Vector3(-98, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color = Color(0.443137, 1, 1, 1)
+
+[node name="MovementTrailVFX" type="GPUParticles2D"]
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_eg38h")
+trail_enabled = true
+trail_sections = 2
+trail_section_subdivisions = 1
