@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxarthgs87x1y"]
+
+[ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_7o124"]
+[ext_resource type="Texture2D" uid="uid://2bpsje2pi58e" path="res://assets/images/player/Toom_2.png" id="3_7cpp6"]
+[ext_resource type="Script" path="res://scripts/SwipeControl.gd" id="3_edcyc"]
+[ext_resource type="AudioStream" uid="uid://st7is0l7h3ag" path="res://assets/sfx/laser6.mp3" id="3_kf6cd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38pkq"]
+size = Vector2(720, 1280)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aqms0"]
+radius = 31.5
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_7o124")
+
+[node name="SwipeScreenButton" type="TouchScreenButton" parent="."]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_38pkq")
+shape_visible = false
+script = ExtResource("3_edcyc")
+
+[node name="MovementAudio2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_kf6cd")
+volume_db = -6.0
+
+[node name="WallDetectors" type="Node2D" parent="."]
+
+[node name="NorthCast2D" type="RayCast2D" parent="WallDetectors"]
+unique_name_in_owner = true
+target_position = Vector2(0, -32)
+
+[node name="EastCast2D" type="RayCast2D" parent="WallDetectors"]
+unique_name_in_owner = true
+target_position = Vector2(32, 0)
+
+[node name="SouthCast2D" type="RayCast2D" parent="WallDetectors"]
+unique_name_in_owner = true
+target_position = Vector2(0, 32)
+
+[node name="WestCast2D" type="RayCast2D" parent="WallDetectors"]
+unique_name_in_owner = true
+target_position = Vector2(-32, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("3_7cpp6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_aqms0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
