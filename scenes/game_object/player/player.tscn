@@ -56,6 +56,7 @@ scale = Vector2(1.1, 1.1)
 texture = ExtResource("3_7cpp6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.65, 0.65)
 
 [node name="MovementTrailVFX" parent="." instance=ExtResource("5_jjt1l")]
 unique_name_in_owner = true

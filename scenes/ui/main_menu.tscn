@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://d287mtfcmkl1j"]
+[gd_scene load_steps=3 format=3 uid="uid://d287mtfcmkl1j"]
 
+[ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_cmlyl"]
 [ext_resource type="Theme" uid="uid://bstmv845o7ivo" path="res://resources/theme/new_theme.tres" id="1_ira2d"]
 
 [node name="MainMenu" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cmlyl")
 
 [node name="Background" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(10000, 10000)
@@ -40,7 +42,7 @@ theme_override_constants/margin_top = 200
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 theme = ExtResource("1_ira2d")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 48
 text = "Toom's Tomb"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -60,7 +62,9 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 text = "Tap to Start"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

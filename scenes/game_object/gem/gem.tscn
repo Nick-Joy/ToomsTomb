@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://fvjlm1b4n7av"]
 
-[ext_resource type="Texture2D" uid="uid://lvewum6omp17" path="res://assets/images/gem/minigem.png" id="1_fwtbl"]
+[ext_resource type="Texture2D" uid="uid://b7upsxocuxvjb" path="res://assets/images/gem/minigem_v2.png" id="2_1mcsh"]
 [ext_resource type="Script" path="res://scenes/game_object/gem/gem.gd" id="2_cyya4"]
 [ext_resource type="AudioStream" uid="uid://bm3xo73aauhy7" path="res://assets/sfx/chipsStack2.ogg" id="3_06kcd"]
 
@@ -49,16 +49,17 @@ texture_filter = 1
 position = Vector2(0, 5)
 script = ExtResource("2_cyya4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-texture = ExtResource("1_fwtbl")
-
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_krjes")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(3, 3)
+texture = ExtResource("2_1mcsh")
 
 [node name="GemCollectedSFX" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true

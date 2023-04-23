@@ -13,7 +13,7 @@ class_name Player
 @onready var movement_trail_vfx: GPUParticles2D = %MovementTrailVFX
 
 
-@export var move_speed: float = 1000
+@export var move_speed: float = 800
 var gravity_direction: Vector2 = Vector2(Vector2.ZERO)
 var can_move: bool
 
@@ -25,7 +25,6 @@ func _ready():
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenDrag:
 		if can_move and velocity == Vector2.ZERO:
-			print("yas")
 			match swipe_screen_button.get_swipe_direction(event.relative, 4):
 				Vector2.UP:
 					set_gravity_direction(Vector2.UP)
@@ -39,6 +38,16 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(_delta: float) -> void:
+	# PC Controls (Debug)
+	if Input.is_action_pressed("up"):
+		set_gravity_direction(Vector2.UP)
+	if Input.is_action_pressed("down"):
+		set_gravity_direction(Vector2.DOWN)
+	if Input.is_action_pressed("left"):
+		set_gravity_direction(Vector2.LEFT, true)
+	if Input.is_action_pressed("right"):
+		set_gravity_direction(Vector2.RIGHT, false)
+	
 	check_raycast_collision()                   # Makes sure you're touching a wall before moving
 	velocity = gravity_direction * move_speed   # Assigns normalized vectors from _input to velocity
 	move_and_slide()

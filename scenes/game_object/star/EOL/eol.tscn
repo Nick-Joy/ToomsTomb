@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj6q1g3qvrr7o"]
+
+[ext_resource type="Texture2D" uid="uid://b42guwdie2hmo" path="res://assets/images/EOL/eol.png" id="1_w5gq1"]
+
+[node name="EOL" type="Node2D"]
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_w5gq1")

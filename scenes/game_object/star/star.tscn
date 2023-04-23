@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://f7qrryij3lrw"]
 
 [ext_resource type="Script" path="res://scenes/game_object/star/star.gd" id="1_2d53v"]
-[ext_resource type="Texture2D" uid="uid://c1v4sdljbe0r" path="res://assets/images/star/star_placeholder.png" id="1_hw6ik"]
 [ext_resource type="AudioStream" uid="uid://c64a15uqf5stw" path="res://assets/sfx/powerUp7.mp3" id="2_sjnlo"]
+[ext_resource type="Texture2D" uid="uid://dlwwoinva6lxo" path="res://assets/images/star/star.png" id="3_ikugp"]
 
 [sub_resource type="Animation" id="Animation_tjg55"]
 resource_name = "star_collected_animation"
@@ -30,6 +30,20 @@ tracks/1/keys = {
 "values": [{
 "args": [],
 "method": &"queue_free"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StarCollectedAudio2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
 }]
 }
 
@@ -71,7 +85,8 @@ volume_db = -3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_hw6ik")
+scale = Vector2(3, 3)
+texture = ExtResource("3_ikugp")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
